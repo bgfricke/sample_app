@@ -1,0 +1,9 @@
+<li>
+	<%= gravatar_for user, size: 52 %>
+	<% # Rails automatically converts "user" to "user_path(user)" %>
+	<% # Note that "user_path(user)" is a named route that is converted to "/users/1" provided the id of "user" is "1" %>
+	<%= link_to user.name, user %>
+	<% if current_user.admin? && !current_user?(user) %>
+	| <%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure you want to delete?" } %>
+	<% end %>
+</li>
